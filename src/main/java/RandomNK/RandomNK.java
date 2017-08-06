@@ -20,24 +20,24 @@ public class RandomNK {
         }
         int[] result = randomNK(inputArray, k);
 
-        for (int i = 0; i < result.length; i++) {
+        for (int i = result.length-1; i >= result.length-k; i--) {
             System.out.println("Wylosowany element: " + result[i]);
         }
-
     }
 
     public static int[] randomNK(int[] inputArray, int k) {
-        int[] result = new int[k];
         int index = inputArray.length-1;
         Random random = new Random();
+        int temp;
         while(k > 0) {
             int r = random.nextInt(index);
-            result[k-1] = inputArray[r];
+            temp = inputArray[r];
             inputArray[r] = inputArray[index];
+            inputArray[index] = temp;
             index--;
             k--;
         }
 
-        return result;
+        return inputArray;
     }
 }
