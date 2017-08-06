@@ -1,3 +1,5 @@
+package TheAbsoluteValue;
+
 import java.util.Scanner;
 
 public class TheAbsoluteValue {
@@ -11,7 +13,10 @@ public class TheAbsoluteValue {
         int result = getAbsolute(number);
 
         System.out.println("Wynik to " + result);
+
+
     }
+
 
     public static int getAbsolute(int number){
         int result;
