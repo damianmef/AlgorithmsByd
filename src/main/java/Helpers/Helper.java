@@ -35,6 +35,13 @@ public class Helper {
         return arrayN;
     }
 
+    public static String getStringFromUser(String info)
+    {
+        System.out.println(info);
+        Scanner scanner = new Scanner(System.in);
+        String result  = scanner.nextLine();
+        return result;
+    }
 
 
     public static void printArray(int[] arrayN) {
@@ -42,4 +49,9 @@ public class Helper {
             System.out.println(arrayN[i]);
         }
     }
+
+    public static void printInt(int n) {
+        System.out.println(n);
+    }
+
 }
