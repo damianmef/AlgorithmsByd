@@ -53,5 +53,7 @@ public class Helper {
     public static void printInt(int n) {
         System.out.println(n);
     }
-
+    public static void printString(String s) {
+        System.out.println(s);
+    }
 }
