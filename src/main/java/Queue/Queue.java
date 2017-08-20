@@ -10,19 +10,21 @@ public class Queue {
     public void addToQueue(int value) {
 
         QueueElement item = new QueueElement(value);
-        item.setPrev(this.last);
-        this.last = item;
 
         if (this.first == null) {
             this.first = item;
         }
+        if (last != null) {
+            this.last.setNext(item);
+        }
+        this.last = item;
     }
 
     public int removeFromQueue()
     {
-        if (this.last != null) {
-            int temp = this.last.getValue();
-            this.last = this.last.getPrev();
+        if (this.first != null) {
+            int temp = this.first.getValue();
+            this.first = first.getNext();
             return temp;
         }
         return -1;
@@ -57,11 +59,11 @@ public class Queue {
 
     public void printQueue()
     {
-        if (this.last != null) {
-            QueueElement temp = this.last;
-            while(temp.getPrev() != null) {
+        if (this.first != null) {
+            QueueElement temp = this.first;
+            while(temp.getNext() != null) {
                 Helper.printInt(temp.getValue());
-                temp = temp.getPrev();
+                temp = temp.getNext();
             }
             Helper.printInt(temp.getValue());
         }

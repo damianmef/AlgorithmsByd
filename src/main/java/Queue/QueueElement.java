@@ -2,7 +2,7 @@ package Queue;
 
 public class QueueElement {
     private int value;
-    private QueueElement prev = null;
+    private QueueElement next = null;
 
     public QueueElement(int value) {
         this.value = value;
@@ -16,11 +16,11 @@ public class QueueElement {
         this.value = value;
     }
 
-    public QueueElement getPrev() {
-        return prev;
+    public QueueElement getNext() {
+        return next;
     }
 
-    public void setPrev(QueueElement prev) {
-        this.prev = prev;
+    public void setNext(QueueElement next) {
+        this.next = next;
     }
 }
