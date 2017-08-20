@@ -9,4 +9,11 @@ public class PrintStructures {
             System.out.println(Arrays.toString(matrixA[i]));
         }
     }
+
+    public static void printE(Edge[] e) {
+        for (Edge item: e) {
+            System.out.println(item);
+        }
+    }
+
 }
