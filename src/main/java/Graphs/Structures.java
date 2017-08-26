@@ -22,4 +22,15 @@ public class Structures {
         }
         return result;
     }
+
+    public static Edge2[] generateEdge2Array(int n) {
+        Edge[] temp = generateEdgeArray(n);
+        Edge2[] result = new Edge2[temp.length];
+        for(int i = 0; i < temp.length; i++) {
+            Edge2 item = new Edge2(temp[i].getA(), temp[i].getB(), false);
+            result[i] = item;
+        }
+        return result;
+    }
+
 }
