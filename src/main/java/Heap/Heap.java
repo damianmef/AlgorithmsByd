@@ -79,11 +79,11 @@ public class Heap {
 
     public void updateHeap(HeapElement last){
 
-        HeapElement temp = this.top;
-        if(temp.getId == last.getId) {
-            temp.getPrev() = last.getPrev();
-        }
-        temp = temp.getPrev();
+//        HeapElement temp = this.top;
+//        if(temp.getId == last.getId) {
+//            temp.getPrev() = last.getPrev();
+//        }
+//        temp = temp.getPrev();
 
     }
 
