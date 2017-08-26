@@ -5,8 +5,8 @@ import Helpers.Helper;
 public class InvokeHeap {
 
     public static void main(String[] args) {
-//        invokeHeap();
-        invokeHeapOnArray();
+        invokeHeap();
+//        invokeHeapOnArray();
     }
 
     private static void invokeHeap() {
@@ -15,11 +15,13 @@ public class InvokeHeap {
         heap.addToHeap(11);
         heap.addToHeap(5);
         heap.printHeap();
-        Helper.printString(String.valueOf(heap.isEmpty()));
-        Helper.printString(String.valueOf(heap.getPickOfHeap()));
-        Helper.printString(String.valueOf(heap.removeFromHeap()));
-        Helper.printString(String.valueOf(heap.getPickOfHeap()));
-        Helper.printString(String.valueOf(heap.isEmpty()));
+        heap.removeByValue(11);
+        heap.printHeap();
+//        Helper.printString(String.valueOf(heap.isEmpty()));
+//        Helper.printString(String.valueOf(heap.getPickOfHeap()));
+//        Helper.printString(String.valueOf(heap.removeFromHeap()));
+//        Helper.printString(String.valueOf(heap.getPickOfHeap()));
+//        Helper.printString(String.valueOf(heap.isEmpty()));
     }
 
     private static void invokeHeapOnArray() {
