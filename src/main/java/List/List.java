@@ -63,44 +63,52 @@ public class List {
 
     public int removeByValue(int value) {
 
-//        ListElement temp = this.first;
-//        if (this.first != null) {
-//            do {
-//                if (temp.getValue() == value) {
-//                    // remove item
-//                    if(temp.getPrev() != null) {
-//                        temp.getPrev().setNext(temp.getNext());
-//                    }
-//                    if(temp.getNext() != null) {
-//                        temp.getNext().setPrev(temp.getPrev());
-//                    }
-//
-//                }
-//                temp = temp.getNext();
-//            } while (temp.getNext() != null);
-//        }
+
+        ListElement temp = this.first;
+        ListElement tempL = this.last;
         if (this.first != null) {
             do {
-                if (first.getValue() == value) {
+                if (temp.getValue() == value) {
                     // remove item
-                    if(first.getPrev() != null) {
-                        first.getPrev().setNext(first.getNext());
+                    if (temp.getPrev() != null) {
+                        temp.getPrev().setNext(temp.getNext());
                     }
-                    if(first.getNext() != null) {
-                        first.getNext().setPrev(first.getPrev());
+                    if (temp.getNext() != null) {
+                        temp.getNext().setPrev(temp.getPrev());
                     }
-                }
-                first = first.getNext();
-            } while (first.getNext() != null);
 
-            ListElement temp = this.last;
-            do {
-                this.first = temp.getPrev();
-                temp = temp.getPrev();
-            } while (temp.getPrev() != null);
+                }
+                temp = temp.getNext();
+
+                if (tempL.getValue() == value) {
+                    if (tempL.getNext() != null) {
+                        tempL.getNext().setPrev(tempL.getPrev());
+                    }
+                    if (tempL.getPrev() != null) {
+                        tempL.getPrev().setNext(tempL.getNext());
+                    }
+
+                }
+                tempL = tempL.getPrev();
+            }
+            while (temp.getNext() != null);
         }
 
+        temp = this.last;
+        do {
+            this.first = temp.getPrev();
+            temp = temp.getPrev();
+        }
+        while (temp.getPrev() != null);
+
+        tempL=this.first;
+        do {
+            this.last = tempL.getNext();
+            tempL = tempL.getNext();
+        }while (tempL.getNext()!=null);
+
         return -1;
+
 
     }
 
