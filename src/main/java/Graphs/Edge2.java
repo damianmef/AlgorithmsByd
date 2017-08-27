@@ -17,6 +17,15 @@ public class Edge2 {
         this.edgeExist = edgeExist;
     }
 
+    @Override
+    public String toString() {
+        return "Edge2{" +
+                "firstVertex=" + firstVertex +
+                ", secondVertex=" + secondVertex +
+                ", edgeExist=" + edgeExist +
+                '}';
+    }
+
     public int getFirstVertex() {
         return firstVertex;
     }

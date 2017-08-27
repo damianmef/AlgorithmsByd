@@ -16,4 +16,9 @@ public class PrintStructures {
         }
     }
 
+    public static void printE2(Edge2[] edgesArray) {
+        for (Edge2 item: edgesArray) {
+            System.out.println(item);
+        }
+    }
 }

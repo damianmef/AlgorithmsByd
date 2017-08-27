@@ -8,6 +8,7 @@ public class Graphs {
 //        transformEtoA(4,3);
 //        transformAtoE(4,0.5);
 //        getTrianglesCounter(4, 0.99);
+        generateGnf(4, 2);
     }
 
     private static void generateGnp(int vertexNumber, double probability) {
@@ -20,6 +21,11 @@ public class Graphs {
         Edge[] edgesArray = GraphGnk.generateGnk(vertexNumber, edgesNumber);
 
         PrintStructures.printE(edgesArray);
+    }
+
+    private static void generateGnf(int vertexNumber, int maxVertexDegree) {
+        Edge2[] edges2Array = GraphGnf.generateGraphGnf(vertexNumber, maxVertexDegree);
+        PrintStructures.printE2(edges2Array);
     }
 
     private static void transformAtoE(int vertexNumber, double probability) {
