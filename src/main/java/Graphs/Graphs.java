@@ -5,24 +5,43 @@ public class Graphs {
 
 //        generateGnk(4,3);
 //        generateGnp(4, 0.5);
-        transformEtoA(4,3);
+//        transformEtoA(4,3);
+//        transformAtoE(4,0.5);
+//        getTrianglesCounter(4, 0.99);
     }
 
-    public static void generateGnp(int n, double p) {
-        boolean[][] result = GraphGnp.generateGnp(n,p);
-        PrintStructures.printA(result);
+    private static void generateGnp(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
     }
 
-    public static void generateGnk(int n, int k) {
-        Edge[] result = GraphGnk.generateGnk(n, k);
-        PrintStructures.printE(result);
+    private static void generateGnk(int vertexNumber, int edgesNumber) {
+        Edge[] edgesArray = GraphGnk.generateGnk(vertexNumber, edgesNumber);
+
+        PrintStructures.printE(edgesArray);
     }
 
-    public static void transformEtoA(int n, int k) {
-        Edge[] graphGnk = GraphGnk.generateGnk(n,k);
+    private static void transformAtoE(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
+        Edge[] edgesArray = Transforms.transformAtoE(matrixA, vertexNumber);
+        PrintStructures.printE(edgesArray);
+    }
+
+    private static void transformEtoA(int vertexNumber, int edgesNumber) {
+        Edge[] graphGnk = GraphGnk.generateGnk(vertexNumber,edgesNumber);
+
         PrintStructures.printE(graphGnk);
-        boolean[][] result = Transforms.transformEtoA(n,k, graphGnk);
+        boolean[][] result = Transforms.transformEtoA(vertexNumber, edgesNumber, graphGnk);
         PrintStructures.printA(result);
     }
 
+    private static void getTrianglesCounter(int vertexNumber, double probability) {
+        boolean[][] matrixA = GraphGnp.generateGnp(vertexNumber, probability);
+
+        PrintStructures.printA(matrixA);
+        System.out.println(Triangles.getGraphTrianglesCounter(matrixA, vertexNumber));
+    }
 }

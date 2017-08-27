@@ -1,44 +1,44 @@
 package Graphs;
 
 public class Edge2 {
-    private int a;
-    private int b;
-    private boolean flag;
+    private int firstVertex;
+    private int secondVertex;
+    private boolean edgeExist;
 
     public Edge2() {
-        this.a = 0;
-        this.b = 0;
-        this.flag = false;
+        this.firstVertex = 0;
+        this.secondVertex = 0;
+        this.edgeExist = false;
     }
 
-    public Edge2(int a, int b, boolean flag) {
-        this.a = a;
-        this.b = b;
-        this.flag = flag;
+    public Edge2(int firstVertex, int secondVertex, boolean edgeExist) {
+        this.firstVertex = firstVertex;
+        this.secondVertex = secondVertex;
+        this.edgeExist = edgeExist;
     }
 
-    public int getA() {
-        return a;
+    public int getFirstVertex() {
+        return firstVertex;
     }
 
-    public void setA(int a) {
-        this.a = a;
+    public void setFirstVertex(int firstVertex) {
+        this.firstVertex = firstVertex;
     }
 
-    public int getB() {
-        return b;
+    public int getSecondVertex() {
+        return secondVertex;
     }
 
-    public void setB(int b) {
-        this.b = b;
+    public void setSecondVertex(int secondVertex) {
+        this.secondVertex = secondVertex;
     }
 
-    public boolean isFlag() {
-        return flag;
+    public boolean isEdgeExist() {
+        return edgeExist;
     }
 
-    public void setFlag(boolean flag) {
-        this.flag = flag;
+    public void setEdgeExist(boolean edgeExist) {
+        this.edgeExist = edgeExist;
     }
 
 

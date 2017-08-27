@@ -1,40 +1,40 @@
 package Graphs;
 
 public class Edge {
-    private int a;
-    private int b;
+    private int firstVertex;
+    private int secondVertex;
 
     public Edge() {
-        this.a = 0;
-        this.b = 0;
+        this.firstVertex = 0;
+        this.secondVertex = 0;
     }
 
-    public Edge(int a, int b) {
-        this.a = a;
-        this.b = b;
+    public Edge(int firstVertex, int secondVertex) {
+        this.firstVertex = firstVertex;
+        this.secondVertex = secondVertex;
     }
 
-    public int getA() {
-        return a;
+    public int getFirstVertex() {
+        return firstVertex;
     }
 
-    public void setA(int a) {
-        this.a = a;
+    public void setFirstVertex(int firstVertex) {
+        this.firstVertex = firstVertex;
     }
 
-    public int getB() {
-        return b;
+    public int getSecondVertex() {
+        return secondVertex;
     }
 
-    public void setB(int b) {
-        this.b = b;
+    public void setSecondVertex(int secondVertex) {
+        this.secondVertex = secondVertex;
     }
 
     @Override
     public String toString() {
         return "Edge{" +
-                "a=" + a +
-                ", b=" + b +
+                "firstVertex=" + firstVertex +
+                ", secondVertex=" + secondVertex +
                 '}';
     }
 }

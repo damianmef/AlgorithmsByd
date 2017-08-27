@@ -3,28 +3,28 @@ package Graphs;
 import java.util.ArrayList;
 
 public class StructS {
-    private ArrayList<Integer> collection;
-    private int counter;
+    private ArrayList<Integer> neighborsCollection;
+    private int neighborsCounter;
 
     public StructS() {
-        this.collection = new ArrayList<Integer>();
-        this.counter = 0;
+        this.neighborsCollection = new ArrayList<Integer>();
+        this.neighborsCounter = 0;
     }
 
-    public ArrayList<Integer> getCollection() {
-        return collection;
+    public ArrayList<Integer> getNeighborsCollection() {
+        return neighborsCollection;
     }
 
-    public void setCollection(ArrayList<Integer> collection) {
-        this.collection = collection;
+    public void setNeighborsCollection(ArrayList<Integer> neighborsCollection) {
+        this.neighborsCollection = neighborsCollection;
     }
 
-    public int getCounter() {
-        return counter;
+    public int getNeighborsCounter() {
+        return neighborsCounter;
     }
 
-    public void setCounter(int counter) {
-        this.counter = counter;
+    public void setNeighborsCounter(int neighborsCounter) {
+        this.neighborsCounter = neighborsCounter;
     }
 
 
@@ -32,8 +32,8 @@ public class StructS {
     @Override
     public String toString() {
         return "StructS{" +
-                "collection=" + collection +
-                ", counter=" + counter +
+                "neighborsCollection=" + neighborsCollection +
+                ", neighborsCounter=" + neighborsCounter +
                 '}';
     }
 }

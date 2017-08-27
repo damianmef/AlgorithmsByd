@@ -10,8 +10,8 @@ public class PrintStructures {
         }
     }
 
-    public static void printE(Edge[] e) {
-        for (Edge item: e) {
+    public static void printE(Edge[] edgesArray) {
+        for (Edge item: edgesArray) {
             System.out.println(item);
         }
     }

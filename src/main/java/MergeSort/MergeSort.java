@@ -1,55 +1,77 @@
 package MergeSort;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class MergeSort {
+    private static int[] mergeSort(int[] inputArray) {
+        if (inputArray.length <= 1)
+            return inputArray;
 
-    private static final int N = 6;
-    private static int tab[] = {2,3,5,1,7,8};//{30,29,28,27,26,25,1,2,3,4,5,6,7,24,23,22,21,20,19,18,8,9,10,11,17,16,15,13,14,12};
-    private static int t[] = new int[N];  // Tablica pomocnicza
+        int sizeOfLeftArray = inputArray.length / 2;
+        int sizeOfRightArray = inputArray.length - sizeOfLeftArray;
 
-    /* Scalanie dwoch posortowanych ciagow
-       tab[pocz...sr] i tab[sr+1...kon] i
-       wynik zapisuje w tab[pocz...kon] */
-    private static void merge(int pocz, int sr, int kon)
-    {
-        int i,j,q;
-        for (i=pocz; i<=kon; i++) t[i]=tab[i];  // Skopiowanie danych do tablicy pomocniczej
-        i=pocz; j=sr+1; q=pocz;                 // Ustawienie wskaĽników tablic
-        while (i<=sr && j<=kon) {		  // Przenoszenie danych z sortowaniem ze zbiorów pomocniczych do tablicy głównej
-            if (t[i]<t[j])
-                tab[q++]=t[i++];
-            else
-                tab[q++]=t[j++];
+        int inputArrayIndex = 0;
+
+        int[] leftArray = new int[sizeOfLeftArray];
+        for (int i = 0; i < sizeOfLeftArray; i++) {
+            leftArray[i] = inputArray[inputArrayIndex];
+            inputArrayIndex++;
         }
-        while (i<=sr) tab[q++]=t[i++];	// Przeniesienie nie skopiowanych danych ze zbioru pierwszego w przypadku, gdy drugi zbiór się skończył
+
+        int[] rightArray = new int[sizeOfRightArray];
+        for (int i = 0; i < sizeOfRightArray; i++) {
+            rightArray[i] = inputArray[inputArrayIndex];
+            inputArrayIndex++;
+        }
+
+        leftArray = mergeSort(leftArray);
+        rightArray = mergeSort(rightArray);
+
+        return merge(leftArray, rightArray);
     }
 
-    /* Procedura sortowania tab[pocz...kon] */
-    public static void mergesort(int pocz, int kon)
-    {
-        int sr;
-        if (pocz<kon) {
-            sr=(pocz+kon)/2;
-            mergesort(pocz, sr);    // Dzielenie lewej czę¶ci
-            mergesort(sr+1, kon);   // Dzielenie prawej czę¶ci
-            merge(pocz, sr, kon);   // Ł±czenie czę¶ci lewej i prawej
+    private static int[] merge(int[] leftArray, int[] rightArray) {
+        int[] result = new int[leftArray.length + rightArray.length];
+
+        int leftArrayIndex = 0;
+        int rightArrayIndex = 0;
+        int resultArrayIndex = 0;
+
+        while ((leftArrayIndex < leftArray.length) && (rightArrayIndex < rightArray.length)) {
+            if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex]) {
+                result[resultArrayIndex] = leftArray[leftArrayIndex];
+                leftArrayIndex++;
+            } else {
+                result[resultArrayIndex] = rightArray[rightArrayIndex];
+                rightArrayIndex++;
+            }
+            resultArrayIndex++;
         }
+
+        while (leftArrayIndex < leftArray.length) {
+            result[resultArrayIndex] = leftArray[leftArrayIndex];
+            leftArrayIndex++;
+            resultArrayIndex++;
+        }
+
+        while (rightArrayIndex < rightArray.length) {
+            result[resultArrayIndex] = rightArray[rightArrayIndex];
+            rightArrayIndex++;
+            resultArrayIndex++;
+        }
+
+        return result;
     }
-    /**
-     * @param args
-     */
+
     public static void main(String[] args) {
-        int i;
+        Random random = new Random();
+        int[] array = new int[30];
+        for (int i = 0; i < 30; i++) {
+            array[i] = random.nextInt(100);
+        }
 
-        System.out.println("Zbior przed sortowaniem:");
-        for (i=0; i<N; i++)
-            System.out.print(tab[i] + " ");
-
-        mergesort(0,N-1);
-
-        System.out.println("\nZbior po sortowaniu:");
-        for (i=0; i<N; i++)
-            System.out.print(tab[i] + " ");
-
+        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(mergeSort(array)));
     }
-
 }
