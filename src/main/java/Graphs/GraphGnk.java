@@ -2,6 +2,10 @@ package Graphs;
 
 public class GraphGnk {
 
+    /*
+    Do pustego grafu dodajemy k krawędzi, losowo wybranych
+    spośród puli jeszccze nie wylosowanych
+     */
     public static Edge[] generateGnk(int vertexNumber, int edgesNumber) {
         Edge[] result = Structures.generateEdgeArray(vertexNumber);
 

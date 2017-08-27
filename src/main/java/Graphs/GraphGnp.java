@@ -2,6 +2,9 @@ package Graphs;
 
 public class GraphGnp {
 
+    /* Dla każdej możliwej krawędzi losujemy liczbę losową i jeśli
+    jest mniejsza niż p to dodajemy ją do grafu
+     */
     public static boolean[][] generateGnp(int vertexNumber, double probability) {
         boolean[][] matrixA = new boolean[vertexNumber][vertexNumber];
 
